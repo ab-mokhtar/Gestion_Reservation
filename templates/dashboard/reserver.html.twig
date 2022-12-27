@@ -1,0 +1,74 @@
+{% extends 'dashboard/blank.html.twig' %}
+{% block body %}
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Clients</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des Clients</h6>
+        </div>
+        <div class="card-body">
+            <div class="contain" >
+                {{ form_start(formSearch) }}
+
+                <div  class="form-group row">
+
+                    {{ form_errors(formSearch.date_deb) }}
+                    {{ form_widget(formSearch.date_deb )}}
+                </div>
+                <br>
+                <div  class="form-group row">
+
+                    {{ form_errors(formSearch.date_fin) }}
+                    {{ form_widget(formSearch.date_fin) }}
+                </div>
+                <br>
+
+
+                <div class="form-group row">
+
+
+                    <button  type="submit" class="rates">Search</button>
+                </div>
+                <br>
+
+                {{ form_end(formSearch) }}
+            </div>
+            <div class="table-responsive">
+
+
+                {% for c in ListeChambre %}
+
+                    {% for i in c.images %}
+                        <img width="200px"height="200px" src={{asset('uploads/images/'~ i.path)}}>
+
+                    {% endfor %}
+                    <br>
+                    <label>Chambre numéro :</label>
+                    <label >{{ c.id }}</label>
+                    <br>
+                    <label>prix par jour :</label>
+                    <label class="price">{{ c.prix }}$</label>
+                    <form action="/dash/reserver/{{ app.user.id }}/{{ c.id }}/{{ date_debut}}/{{date_fin }}" method="post">
+
+                        <button type="submit" class="btn btn-primary">Réserver</button>
+                    </form><br>
+                    <form action="/dash/clientdel/{{ c.id }}" method="post">
+
+                        <button type="submit" class="btn btn-primary">Modifier</button>
+                    </form><br>
+                    <form action="/dash/clientdel/{{ c.id }}" method="post">
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <br><hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

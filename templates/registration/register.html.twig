@@ -1,0 +1,38 @@
+{% extends 'dashboard/blank.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+<table align="center">{{ form_start(registrationForm) }}
+    <tr><td> {{ form_label(registrationForm.email) }}</td>
+        <td>
+            {{ form_widget(registrationForm.email) }}</td>
+    </tr>
+    <tr><td>{{ form_label(registrationForm.nom) }}</td>
+        <td>{{ form_widget(registrationForm.nom) }}</td></tr>
+    <tr><td> {{ form_label(registrationForm.prenom) }}</td><td> {{ form_widget(registrationForm.prenom) }}</td></tr>
+    <tr><td>    {{ form_label(registrationForm.cin) }}</td><td>    {{ form_widget(registrationForm.cin) }}</td></tr>
+
+    <tr><td>    {{ form_label(registrationForm.tel) }}</td><td>    {{ form_widget(registrationForm.tel) }}</td></tr>
+
+    <tr><td><label>Password:</label></td><td>{{ form_widget(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}</td></tr>
+    <tr><td>    {{ form_label(registrationForm.date_nais) }}
+        </td><td>    {{ form_widget(registrationForm.date_nais) }}
+        </td></tr>
+    <tr><td>        {{ form_label(registrationForm.agreeTerms) }}
+        </td><td>        {{ form_widget(registrationForm.agreeTerms) }}
+        </td></tr>
+<tr><td></td><td><button type="submit" class="btn-facebook">Register</button>
+        {{ form_end(registrationForm) }}</td></tr>
+</table>
+
+
+
+
+
+
+
+{% endblock %}

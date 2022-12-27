@@ -1,0 +1,50 @@
+{% extends 'dashboard/blank.html.twig' %}
+{% block body %}
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800"></h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Ajouter une Chambre</h6>
+        </div>
+        <div class="card-body">
+            <div class="contain" >
+                {{ form_start(formChambre) }}
+
+                <div  class="form-group row">
+                    <label>Nombre de Lits:</label>
+                    {{ form_errors(formChambre.nb_lits) }}
+                    {{ form_widget(formChambre.nb_lits,{'attr': {'placeholder': 'Nombre de lits'}}) }}
+                </div>
+                <br>
+                <div  class="form-group row">
+                    <label>Prix par jour:</label>
+
+                    {{ form_errors(formChambre.prix) }}
+                    {{ form_widget(formChambre.prix,{'attr': {'placeholder': 'prix par jour'}}) }}
+                </div>
+                <br>
+
+                <div class="form-group row">
+
+                    <label>Photos:</label>
+
+                    {{ form_widget(formChambre.photos) }}
+                    {{ form_errors(formChambre.photos) }}
+                </div>
+                <br>
+                <div class="form-group row">
+
+
+                    <button  type="submit" class="rates">Add Chambre</button>
+                </div>
+                <br>
+
+                {{ form_end(formChambre) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'dashboard/blank.html.twig' %}
+{% block body %}
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Clients</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des réservation</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>chambre_id</th>
+                        <th>date_debut</th>
+                        <th>date_fin</th>
+                        <th>prix</th>
+                        <th>etat</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>chambre_id</th>
+                        <th>date_debut</th>
+                        <th>date_fin</th>
+                        <th>prix</th>
+                        <th>etat</th>
+
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for c in Listereserv %}
+                        <tr>
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.chambre.id }}</td>
+                            <td>{{ c.dateDebut |date }}</td>
+                            <td>{{ c.dateFin | date }}</td>
+                            <td>{{ c.prix }}</td>
+                            <td>{{ c.etat }}</td>
+
+                            <td class="text-right">
+                                <form action="/dash/getRecu/{{ c.id }}" method="post">
+
+                                    <button type="submit" class="btn btn-facebook">Imprimer Recu</button>
+                                </form>
+                            </td>
+
+                        </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'dashboard/blank.html.twig' %}
+{% block body %}
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Clients</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des Clients</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>cin</th>
+                        <th>Email</th>
+                        <th>date naissance</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>cin</th>
+                        <th>Email</th>
+                        <th>date naissance</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for c in ListeClient %}
+                        <tr>
+                            <td>{{ c.id }}</td>
+                            <td>{{ c.nom }}</td>
+                            <td>{{ c.prenom }}</td>
+                            <td>{{ c.cin }}</td>
+                            <td>{{ c.email }}</td>
+                            <td>{{ c.dateNais | date }}</td>
+                            <td class="text-right">
+                                <form action="/dash/clientdel/{{ c.id }}" method="post">
+
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

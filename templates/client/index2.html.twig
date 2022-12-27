@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClientController!{% endblock %}
+
+{% block body %}
+
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>nom</td>
+        <td>prenom</td>
+        <td>cin</td>
+        <td>adresse</td>
+        <td>date naissance</td>
+    </tr>
+
+    <tr>
+        {% if (ListeClient!=null)%}
+        <td>{{ ListeClient.id }}</td>
+        <td>{{ ListeClient.nom }}</td>
+        <td>{{ ListeClient.prenom }}</td>
+        <td>{{ ListeClient.cin }}</td>
+        <td>{{ ListeClient.adresse }}</td>
+        <td>{{ ListeClient.dateNais | date }}</td>
+        {% endif %}
+    </tr>
+
+</table>
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recu</title>
+</head>
+<body>
+<h1 class="h3 mb-2 text-gray-800">Recu Reservation</h1>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary"></h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table border="1" class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+
+          <th>nom de client</th>
+          <th>prenom de client</th>
+          <th>cin</th>
+          <th>tel</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+          <td>{{ client.nom }}</td>
+          <td>{{ client.prenom }}</td>
+          <td>{{ client.cin }}</td>
+          <td>{{ client.tel }}</td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+    <div class="table-responsive">
+      <table border="1" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>chambre_id</th>
+          <th>date_debut</th>
+          <th>date_fin</th>
+          <th>prix</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+          <td>{{ reserv.id }}</td>
+          <td>{{ reserv.chambre.id }}</td>
+          <td>{{ reserv.dateDebut |date }}</td>
+          <td>{{ reserv.dateFin | date }}</td>
+          <td>{{ reserv.prix }}</td>
+          <td>{{ reserv.etat }}</td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
